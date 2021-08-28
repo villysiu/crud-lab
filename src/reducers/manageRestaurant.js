@@ -26,7 +26,21 @@ export default function manageRestaurants(state={ restaurants: [], reviews: []},
         case 'DELETE_REVIEW':
             return {...state, reviews: state.reviews.filter(review => review.id !== action.id)};
         
-
+        case 'UPDATE_RESTAURANT':
+            // { text: 'updated text', id: id}
+            console.log(action)
+            function updateRestaurant(restaurant) {
+                if (restaurant.id === action.formData.id) {
+                    restaurant = {
+                        ...restaurant,
+                        text: action.formData.text
+                    }
+                    //restaurant.text = action.formData.text 
+                }
+                return restaurant
+            }
+            
+            return {...state, restaurants: state.restaurants.map(updateRestaurant)};
         default:
             return state;
     }

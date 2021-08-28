@@ -11,7 +11,8 @@ class Restaurants extends Component {
          { this.props.restaurants.map((restaurant) => 
           <Restaurant key={restaurant.id}
                       restaurant = {restaurant}  
-                      delete={this.props.delete} />
+                      delete={this.props.delete} 
+                      update={this.props.update}/>
         )} 
       </ul>
     );
